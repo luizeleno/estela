@@ -1,18 +1,29 @@
-enunciados:
-  - Pergunta 1
-  - Pergunta 2
-  - Pergunta 3
-  - Pergunta 4
-  - Pergunta 5
-  - Pergunta 6
-  - Pergunta 7
-  - Pergunta 8
-  - Pergunta 9
-  - Pergunta 10
-
-respostas:
-    - ótimo
-    - bom
-    - razoável
-    - ruim
-    - péssimo
+banco_de_perguntas:
+  -
+    titulo: Qual a situação da empresa?
+    descricao: 'aqui vocês descrevem melhor a pergunta'
+    id: Q1
+    peso_pergunta: 1
+    respostas: ['Péssimo', 'Ruim', 'Regular', 'Bom', 'Ótimo']
+    peso_respostas: [.2, .4, .6, .8, 1.]
+  -
+    titulo: Qual a situação da empresa?
+    descricao: 'aqui vocês descrevem melhor a pergunta'
+    id: Q2
+    peso_pergunta: 3
+    respostas: ['Péssimo', 'Ruim', 'Regular', 'Bom', 'Ótimo']
+    peso_respostas: [.2, .4, .6, .8, 1.]
+  -
+    titulo: Qual a situação da empresa?
+    descricao: 'aqui vocês descrevem melhor a pergunta'
+    id: Q3
+    peso_pergunta: 1
+    respostas: ['Péssimo', 'Ruim', 'Regular', 'Bom', 'Ótimo']
+    peso_respostas: [.2, .4, .6, .8, 1.]
+  -
+    titulo: Qual a situação da empresa?
+    descricao: 'aqui vocês descrevem melhor a pergunta'
+    id: Q4
+    peso_pergunta: 1.5
+    respostas: ['Péssimo', 'Ruim', 'Regular', 'Bom', 'Ótimo']
+    peso_respostas: [.2, .4, .6, .8, 1.]
