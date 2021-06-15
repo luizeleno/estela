@@ -1,5 +1,5 @@
 baseurl: /estela
-# github: [metadata]
+github: [metadata]
 
 theme: jekyll-theme-hacker
 
