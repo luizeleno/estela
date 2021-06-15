@@ -1,7 +1,3 @@
----
-title: Avaliação sobre  Empreendedorismo
----
-
 # Responda às seguintes questões:
 
 {% for pergunta in site.data.perguntas.banco_de_perguntas %}
