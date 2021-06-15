@@ -1,0 +1,11 @@
+baseurl: /estela
+# github: [metadata]
+
+theme: jekyll-theme-hacker
+
+title: Perguntas sobre Empreendedorismo
+description: para disciplina da EEL
+
+email: estela@usp.br
+name: Estela
+dados: "www.???.???"

@@ -1,0 +1,149 @@
+<script>
+
+document.getElementById("sorteio").disabled = true;
+document.getElementById("apagar").disabled = true;
+document.getElementById("menos").disabled = true;
+
+document.getElementById('pontosfile').addEventListener('change', open_file, false);
+
+N = 0;
+MAX = {{site.MAXPONTOS}};
+
+function abrir() {
+  document.getElementById('pontosfile').click()
+}
+
+function open_file(evt) {
+  
+  // https://www.html5rocks.com/en/tutorials/file/dndfiles//
+  var files = evt.target.files;
+  var file = files[0]
+
+  var reader = new FileReader();
+  reader.readAsText(file);
+
+  reader.onload = function() {
+    var pontos = reader.result.split("\n");
+    N = pontos.length - 1;
+    
+    if(N > MAX) {
+      alert(`Muitos pontos no arquivo!\nLendo apenas os ${MAX} primeiros. Consulte o mantenedor para aumentar o limite.`);
+      N = MAX;
+    }
+    
+    var inps = document.getElementById('inputs');
+    inps.innerHTML = "";
+    
+    for(num=1; num<=N; num++) {
+      var input = cria_input(num);
+      inps.appendChild(input);
+      document.getElementById(num).value = pontos[num-1];
+    }
+    
+    if(N>0) {
+      resetstyle();
+      document.getElementById("menos").disabled = false;
+    }
+    
+  };
+
+  reader.onerror = function() {
+    alert(reader.error);
+  };
+  
+}
+
+function sorteia(min, max) {
+  var num = Math.floor(Math.random() * (max - min + 1) ) + min;
+  var ponto = document.getElementById(num).value;
+  document.getElementById(num).classList.add("sorteado");
+  document.getElementById("sorteio").disabled = true;
+  document.getElementById("apagar").disabled = false;
+  return ponto;
+}
+
+function resetstyle() {
+  document.getElementById("pontosfile").value = "";
+  for(num=1; num<=N; num++) {
+    document.getElementById(num).classList.remove("sorteado");
+    document.getElementById('pontosorteado').innerHTML = "";
+    document.getElementById("sorteio").disabled = false;
+    document.getElementById("apagar").disabled = true;
+  }
+}
+
+function cria_input(num) {
+  var input = document.createElement("input");
+  input.type = "text";
+  input.id = num;
+  input.className = "form__field";
+  return input;
+}
+
+function carrega_exemplo() {
+  N = {{site.data.pontossorteio.exemplo.size}};
+  var inps = document.getElementById('inputs');
+  inps.innerHTML = "";
+  {% assign n=0 %}
+  {% for ponto in site.data.pontossorteio.exemplo %}
+    {% assign n=n | plus: 1 %}
+    var input = cria_input({{n}});
+    inps.appendChild(input);
+    document.getElementById({{n}}).value = "{{n}}. {{ponto}}";
+  {% endfor %}
+  resetstyle();
+  document.getElementById("menos").disabled = false;
+}
+
+function add_input() {
+  if(N<MAX) {
+    N++;
+    var inps = document.getElementById('inputs');
+    var input = cria_input(N);
+    inps.appendChild(input);
+    document.getElementById(N).value = `${N}. `;
+    resetstyle();
+    document.getElementById("menos").disabled = false;
+  }
+  else {
+    alert(`Máximo de ${MAX} pontos atingido. Consulte o mantenedor para aumentar o limite.`);
+  }
+}
+
+function remove_input() {
+  var input = document.getElementById(N);
+  input.parentNode.removeChild(input);
+  N--;
+  resetstyle();
+  if(N==0) {
+    document.getElementById("menos").disabled = true;
+    document.getElementById("sorteio").disabled = true;
+    document.getElementById("apagar").disabled = true;
+  }
+}
+
+function lista_pontos() {
+
+  var pontos = new Array();
+  for(num=1;num<=N;num++) {
+    ponto = document.getElementById(num).value;
+    pontos[num-1] = `${ponto}\n`;
+  }
+
+  // https://kilianvalkhof.com/2020/javascript/creating-files-in-javascript-in-your-browser/
+  let file = new Blob(pontos, {encoding:"UTF-8",type:"text/plain;charset=UTF-8"});
+  var pontosURL = URL.createObjectURL(file);
+
+  if(N>0)
+    document.getElementById("salvar").href = pontosURL;
+  else
+    document.getElementById("salvar").href = "javascript: void(0)";
+}
+
+function limpa() {
+  var inps = document.getElementById('inputs');
+  inps.innerHTML = "";
+  N = 0;
+}
+
+</script>
