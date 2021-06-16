@@ -15,11 +15,11 @@ banco_de_perguntas:
     peso_respostas: [.2, .4, .6, .8, 1.]
   -
     titulo: Qual a situação da empresa?
-    descricao: 'aqui vocês descrevem melhor a pergunta'
+    descricao: '(aqui vocês descrevem melhor a pergunta) Numa escala de 0 a 10, como vocês qualificam?'
     id: Q3
     peso_pergunta: 1
-    respostas: ['Péssimo', 'Ruim', 'Regular', 'Bom', 'Ótimo']
-    peso_respostas: [.2, .4, .6, .8, 1.]
+    respostas: ['0', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    peso_respostas: [.0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1.]
   -
     titulo: Qual a situação da empresa?
     descricao: 'aqui vocês descrevem melhor a pergunta'

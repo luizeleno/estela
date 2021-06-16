@@ -17,7 +17,7 @@ function Analise(q) {
 
 function getRadioOption(id) {
     ele = document.getElementsByName(id);
-    for(i = 0, q = 0; i < ele.length && q == 0; i++)
+    for(i = 0, q = 'Nada'; i < ele.length && q == 'Nada'; i++)
         if(ele[i].checked)
             return ele[i].value;
     return q;
@@ -29,7 +29,7 @@ function somar() {
     const sem_respostas = [];
     {% for pergunta in site.data.perguntas.banco_de_perguntas %}
         id = '{{pergunta.id}}';
-        if(getRadioOption(id) == 0)
+        if(getRadioOption(id) == 'Nada')
             sem_respostas.push(id);
     {% endfor %}
     // ...e retorna mensagem indicando quais não foram respondidas
