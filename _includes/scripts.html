@@ -39,8 +39,8 @@ function somar() {
     {% endfor %}
     resultado_final = resultado / peso_total;
     s += `<b>Total: ${resultado.toFixed(2)}/${peso_total.toFixed(2)} = ${resultado_final.toFixed(2)}</b></p>`
-    s += '<h1>Análise:</h1><p>';
-    s += Analise(resultado_final) + '</p>';
+    s += '<h1>Análise:</h1>';
+    s += '<p>' + Analise(resultado_final) + '</p>';
     document.getElementById("result").innerHTML = s;
     document.getElementById("limpar").hidden = false;
 }
@@ -53,9 +53,11 @@ function Analise(q) {
     else if(q<.6)
         return 'Sua empresa está bem, mas pode melhorar.';
     else if(q<.8)
-        return 'Sua empresa está no caminho certo!'
+        return 'Sua empresa está no caminho certo!';
     else if(q<.9)
-        return 'Sua empresa é top!'
+        return 'Sua empresa é top!';
+    else
+        return 'Sua empresa é foda!';
 }
 
 function limpar() {
