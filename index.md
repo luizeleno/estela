@@ -2,6 +2,8 @@
 
 Podem colocar aqui qualquer texto que quiserem. Aceita formatação markdown, como *itálico*, **negrito** e ~~riscado~~.
 
+<!-- Não mexer a partir deste ponto -->
+
 {% for pergunta in site.data.perguntas.banco_de_perguntas %}
 <fieldset>
 <legend><li>{{pergunta.id}}. {{pergunta.titulo}}</li></legend>
