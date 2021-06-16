@@ -1,5 +1,7 @@
 # Projeto de Empreendedorismo
 
+(podem editar este arquivo à vontade)
+
 * Autora: Estela
 
 * *Apoio:* Prof. Luiz T. F. Eleno
