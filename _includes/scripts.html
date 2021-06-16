@@ -1,6 +1,19 @@
 <script>
 
-pontos = 0;
+function Analise(q) {
+    if(q<.2)
+        return 'Sua empresa é uma bosta!';
+    else if(q<.4)
+        return 'Sua empresa é mais ou menos.';
+    else if(q<.6)
+        return 'Sua empresa está bem, mas pode melhorar.';
+    else if(q<.8)
+        return 'Sua empresa está no caminho certo!';
+    else if(q<.9)
+        return 'Sua empresa é top!';
+    else
+        return 'Sua empresa é foda!';
+}
 
 function getRadioOption(id) {
     ele = document.getElementsByName(id);
@@ -43,21 +56,6 @@ function somar() {
     s += '<p>' + Analise(resultado_final) + '</p>';
     document.getElementById("result").innerHTML = s;
     document.getElementById("limpar").hidden = false;
-}
-
-function Analise(q) {
-    if(q<.2)
-        return 'Sua empresa é uma bosta!';
-    else if(q<.4)
-        return 'Sua empresa é mais ou menos.';
-    else if(q<.6)
-        return 'Sua empresa está bem, mas pode melhorar.';
-    else if(q<.8)
-        return 'Sua empresa está no caminho certo!';
-    else if(q<.9)
-        return 'Sua empresa é top!';
-    else
-        return 'Sua empresa é foda!';
 }
 
 function limpar() {
