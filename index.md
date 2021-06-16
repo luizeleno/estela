@@ -1,5 +1,7 @@
 # Responda às seguintes questões:
 
+Podem colocar aqui qualquer texto que quiserem. Aceita formatação markdown, como *itálico*, **negrito** e ~~riscado~~.
+
 {% for pergunta in site.data.perguntas.banco_de_perguntas %}
 <fieldset>
 <legend><li>{{pergunta.id}}. {{pergunta.titulo}}</li></legend>
@@ -22,4 +24,4 @@
 
 ---
 
-© {{ site.time | date: '%Y' }} [{{ site.desenvolvedor }}](mailto: {{ site.email }}).
+© {{ site.time | date: '%Y' }} [{{ site.desenvolvedor }}]({{site.baseurl}}/time/)
