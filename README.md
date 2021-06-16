@@ -1,6 +1,4 @@
-# Sorteador
-
-##Site para projeto de Empreendedorismo
+# Projeto de Empreendedorismo
 
 * Autora: Estela
 
